@@ -1,7 +1,7 @@
 import os
 from random import randint
 def exibir(t):
-    os.system("clear")
+    os.system("clear") # O 'clear' pode variar de acordo com o terminal
     print('\n | 1 | 2 | 3 |')
     for i in range(3):
         print(str(i+1)+'|', end='')
