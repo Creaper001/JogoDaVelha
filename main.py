@@ -57,18 +57,31 @@ def jogador(t, v):
             print('Movimento Invalido.\n')
 def maquina(t, v):
     for i in range(3):
-        t1 = t[i][0] + t[i][1] + t[i][2]
-        t2 = t[0][i] + t[1][i] + t[2][i]
-        if(t1 == 2 or t1 == -2):
-            for ii in range(3):
-                if(t[i][ii] == 0):
-                    t[i][ii] = v
-                    return t
-        elif(t2 == 2 or t2 == -2):
-            for ii in range(3):
-                if(t[ii][i] == 0):
-                    t[ii][i] = v
-                    return t
+      t1 = t[i][0] + t[i][1] + t[i][2]
+      t2 = t[0][i] + t[1][i] + t[2][i]
+      if(t1 == v*2):
+        for ii in range(3):
+          if(t[i][ii] == 0):
+            t[i][ii] = v
+            return t
+      elif(t2 == v*2):
+        for ii in range(3):
+          if(t[ii][i] == 0):
+            t[ii][i] = v
+            return t
+    for i in range(3):
+      t1 = t[i][0] + t[i][1] + t[i][2]
+      t2 = t[0][i] + t[1][i] + t[2][i]
+      if(t1 == -v*2):
+        for ii in range(3):
+          if(t[i][ii] == 0):
+            t[i][ii] = v
+            return t
+      elif(t2 == -v*2):
+        for ii in range(3):
+          if(t[ii][i] == 0):
+            t[ii][i] = v
+            return t
     t3 = t[0][0]+t[1][1]+t[2][2]
     t4 = t[0][2]+t[1][1]+t[2][0]
     if(t3 == 2 or t3 == -2):
@@ -137,10 +150,10 @@ def jogo():
         j += 1
         if(j%2 != 0):
             print('\nJogador X: \n')
-            t = maquina(t, 1)
+            t = maquina(t, 1) # É possivel trocar 'maquina()' por 'jogador()'
         else:
             print('\nJogador O: \n')
-            t = jogador(t, -1)
+            t = jogador(t, -1) # É possivel trocar 'jogador()' por 'maquina()'
         exibir(t)
     print(str(j)+' jogadas.')
 jogo()
